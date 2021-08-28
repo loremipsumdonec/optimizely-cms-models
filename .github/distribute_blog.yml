@@ -1,0 +1,20 @@
+name: blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'posts/**.md'
+
+jobs:
+    build:
+        name: build
+        runs-on: ubuntu-latest
+        steps:
+        - name: Azure Pipelines Action
+          uses: Azure/pipelines@v1
+          with:
+            azure-devops-project-url: ${{ secrets.BLOG_PROJECT_URL }}
+            azure-pipeline-name: ${{ secrets.BLOG_PIPELINE_NAME }}
+            azure-devops-token: ${{ secrets.BLOG_TOKEN }}
