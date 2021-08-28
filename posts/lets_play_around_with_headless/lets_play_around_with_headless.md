@@ -6,9 +6,9 @@ theme: "purple"
 state: "in_progress"
 tags: [""]
 
-repository_url: "https://github.com/loremipsumdonec/optimizely-testframework"
-repository_name: "optimizely-testframework"
-repository_base: "https://github.com/loremipsumdonec/optimizely-testframework/blob/master/posts/lets_play_around_with_headless"
+repository_url: "https://github.com/loremipsumdonec/optimizely-cms-models"
+repository_name: "optimizely-cms-models"
+repository_base: "https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless"
 
 title: "Let's play around with headless"
 preamble: "This post will give an introduction on how to use technologies such as React, Vue and Angular to build a front end with support for server-side rendering."
