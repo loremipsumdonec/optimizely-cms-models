@@ -1,10 +1,36 @@
 using JavaScriptEngineSwitcher.V8;
+using Lorem.Test.Framework.Optimizely.CMS.Utility;
+using lorem_headless_tests.Extensions;
+using lorem_headless_tests.Services;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Xunit;
 
 namespace lorem_headless_tests
 {
     public class JavaScriptEngineTests
     {
+        public JavaScriptEngineTests()
+        {
+            Resources = new DefaultResources();
+        }
+
+        public DefaultResources Resources { get; set; }
+
+        private string SerializeWithCamelCase(object model) 
+        {
+            var contractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy()
+            };
+
+            return JsonConvert.SerializeObject(model, new JsonSerializerSettings
+            {
+                ContractResolver = contractResolver,
+                Formatting = Formatting.Indented
+            });
+        }
+
         [Fact]
         public void CallFunction_WithNoInput_ReturnMessage()
         {
@@ -47,6 +73,28 @@ namespace lorem_headless_tests
             var actual = engine.CallFunction<int>("getSum", first, second);
 
             Assert.Equal(first + second, actual);
+        }
+    
+        [Fact]
+        public async void CallRenderFunction_WithModel_ReturnHtml() 
+        {
+            var model = new
+            {
+                Heading = "Hello world",
+                Preamble = IpsumGenerator.Generate(10, 18)
+            };
+
+            var modelAsJson = SerializeWithCamelCase(model);            
+
+            var engine = new V8JsEngine();
+            engine.Execute(
+                Resources.GetContent("lets_render.js")
+            );
+
+            var html = engine.CallFunction<string>("render", modelAsJson);
+
+            Assert.Equal(model.Heading, await html.GetTextAsync("h1"));
+            Assert.Equal(model.Preamble, await html.GetTextAsync("p"));
         }
     }
 }
