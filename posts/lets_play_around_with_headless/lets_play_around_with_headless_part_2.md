@@ -7,7 +7,7 @@ title: "Start with React"
 preamble: "Now when we have the principle of calling a simple JavaScript function from .NET, it is time to look at React and explore what the differences will be from a simple JavaScript. "
 ---
 
-> All .NET examples will be from test cases that I have created in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless) and from file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_tests/CreateReactAppTests.cs), and the examples for React will be from the project [lorem_headless_react](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react)
+> All .NET examples will be from test cases that I have created in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless) and from file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_tests/CreateReactAppTests.cs), and the examples for React will be from the project [lorem_headless_react](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless_react)
 
 ## Create a React project
 
@@ -106,7 +106,7 @@ One alternative is to use the `eject` function in `create-react-app`, then we wi
 
 Install CRACO by following the [installation guide](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation), you will also need to install `cross-env` with `npm install cross-env --save-dev`.  
 
-The next step is to add a new script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react/craco.config.js). Besides setting the entry to _server.js_ we will also need to change some other configuration, like specifying a library. 
+The next step is to add a new script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/craco.config.js). Besides setting the entry to _server.js_ we will also need to change some other configuration, like specifying a library. 
 
 ```javascript
 const serverSettings = {
