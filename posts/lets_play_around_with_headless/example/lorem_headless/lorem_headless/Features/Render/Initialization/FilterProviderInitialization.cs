@@ -16,7 +16,7 @@ namespace lorem_headless.Features.Render.Initialization
                 return;
             }
 
-            FilterProviders.Providers.Add(new RenderFilterProvider());
+            FilterProviders.Providers.Add(new DefaultFilterProvider());
         }
 
         public void Uninitialize(InitializationEngine context)

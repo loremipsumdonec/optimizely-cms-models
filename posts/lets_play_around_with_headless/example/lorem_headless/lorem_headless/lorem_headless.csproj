@@ -275,7 +275,7 @@
     <Compile Include="Features\Render\TransformAsJson.cs" />
     <Compile Include="Features\Render\TransformModelWithJavaScript.cs" />
     <Compile Include="Features\Render\Initialization\FilterProviderInitialization.cs" />
-    <Compile Include="Features\Render\Services\RenderFilterProvider.cs" />
+    <Compile Include="Features\Render\Services\DefaultFilterProvider.cs" />
     <Compile Include="Features\Render\TransformModelToJson.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
