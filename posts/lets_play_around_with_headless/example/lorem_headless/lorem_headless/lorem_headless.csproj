@@ -267,17 +267,27 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Controllers\ArticlePageController.cs" />
+    <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Features\Authentication\Initialization\CookieAuthentication.cs" />
+    <Compile Include="Features\Render\Initialization\ContentTypeFromUrlInitialization.cs" />
+    <Compile Include="Features\Render\IWebController.cs" />
+    <Compile Include="Features\Render\TransformAsJson.cs" />
+    <Compile Include="Features\Render\TransformModelWithJavaScript.cs" />
+    <Compile Include="Features\Render\Initialization\FilterProviderInitialization.cs" />
+    <Compile Include="Features\Render\Services\RenderFilterProvider.cs" />
+    <Compile Include="Features\Render\TransformModelToJson.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\HeroBlock.cs" />
-    <Compile Include="Models\Pages\ArticlePage.cs" />
-    <Compile Include="Models\Pages\StartPage.cs" />
+    <Compile Include="Models\Pages\ArticlePage\ArticlePage.cs" />
+    <Compile Include="Models\Pages\ArticlePage\ArticlePageModel.cs" />
+    <Compile Include="Models\Pages\StartPage\StartPage.cs" />
+    <Compile Include="Models\Pages\StartPage\StartPageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />
