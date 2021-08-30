@@ -270,8 +270,17 @@
     <Compile Include="Controllers\ArticlePageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Features\Authentication\Initialization\CookieAuthentication.cs" />
+    <Compile Include="Features\CreateReactAppWithHtml\CreateReactAppWithHtmlActionFilter.cs" />
+    <Compile Include="Features\CreateReactAppWithHtml\CreateReactAppWithHtmlActionResult.cs" />
+    <Compile Include="Features\CreateReactAppWithHtml\Initialization\CreateReactAppWithHtmlInitialization.cs" />
+    <Compile Include="Features\CreateReactApp\Initialization\CreateReactAppInitialization.cs" />
+    <Compile Include="Features\CreateReactApp\CreateReactAppActionResult.cs" />
+    <Compile Include="Features\CreateReactApp\CreateReactAppActionFilter.cs" />
     <Compile Include="Features\Render\Initialization\ContentTypeFromUrlInitialization.cs" />
     <Compile Include="Features\Render\IWebController.cs" />
+    <Compile Include="Features\Render\Services\DefaultJavaScriptManager.cs" />
+    <Compile Include="Features\Render\Services\IJavaScriptManager.cs" />
+    <Compile Include="Features\Render\TransformAsHtmlWithJavaScript.cs" />
     <Compile Include="Features\Render\TransformAsJson.cs" />
     <Compile Include="Features\Render\TransformModelWithJavaScript.cs" />
     <Compile Include="Features\Render\Initialization\FilterProviderInitialization.cs" />
@@ -288,6 +297,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\create-react-app\" />
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />

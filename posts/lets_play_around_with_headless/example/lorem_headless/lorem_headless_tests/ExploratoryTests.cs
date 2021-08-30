@@ -17,10 +17,16 @@ namespace lorem_headless_tests
         public ExploratoryFixture Fixture { get; set; }
 
         [Fact]
-        public void CreateASimpleSiteForExploratoryTesting()
+        public void CreateSiteWithACreateReactApp()
         {
-            Fixture.CreateSite<StartPage>()
-                .CreateMany<ArticlePage>(10);
+            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app");
+        }
+
+
+        [Fact]
+        public void CreateSiteWithACreateReactAppWithHtml()
+        {
+            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app-with-html");
         }
     }
 }

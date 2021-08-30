@@ -17,5 +17,8 @@ Backend needs to build the complete view model before sending it to the JavaScri
 
 ## Some new features
 
-There are some base features in the project lorem_headless, and I will not go into depth for these. The project has [extended the routing](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/Render/Initialization/ContentTypeFromUrlInitialization.cs) so that it is possible to write http://localhost:59590/index.json to get the content in json.  The project also uses an [IFilterProvider](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/Render/Services/DefaultFilterProvider.cs) to be able to add filters in a request based on some business logic.
+There are some base features in the project _lorem_headless_, and I will not go into depth for these. The project has extended the routing so that it is possible to write http://localhost:59590/index.json to get the content in json. 
 
+The project also uses an `IFilterProvider` to be able to add filters in a request based on some business logic. Which in this case checks if the controller is a `IWebController`.
+
+The project will also use [JSPool](https://github.com/Daniel15/JSPool) to handle multiple JavaScript engines
