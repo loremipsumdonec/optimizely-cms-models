@@ -7,9 +7,7 @@ title: "Time to render"
 preamble: "Now it's time to start writing some code that we can use in Optimizely CMS to get a server-side rendering with React."
 ---
 
-> ## Some new features
->
-> There are some base features in the project _lorem_headless_, and I will not go into depth for these. The project has extended the routing so that it is possible to write http://localhost:59590/index.json to get the content in json. 
+> There are some base features in the project _[lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless)_, and I will not go into depth for these. The project has extended the routing so that it is possible to write http://localhost:59590/index.json to get the content in json. 
 >
 > The project also uses an `IFilterProvider` to be able to add filters in a request based on some business logic. Which in this case checks if the controller is a `IWebController`.
 >
@@ -97,7 +95,7 @@ There is no major difference to what the code looked like in the test cases we s
 
 ## Something is missing
 
-We will realize quickly that something is missing when we run the first server-side rendering. We get HTML but nothing else, such as styles or images.
+It's quite obvious that something is missing when we run the first server-side rendering. We get HTML but nothing else, such as styles or images.
 
 ![](./resources/create_react_app_ssr_first_render.png)
 
