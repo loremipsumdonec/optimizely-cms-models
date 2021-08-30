@@ -34,7 +34,7 @@ namespace lorem_headless.Models.Pages
             return new List<ISelectItem>() { 
                 new SelectItem() { Text = "Razor", Value = "razor" },
                 new SelectItem() { Text = "React, create react app", Value = "create-react-app" },
-                new SelectItem() { Text = "React, advanced", Value = "react" },
+                new SelectItem() { Text = "React, create react app with html", Value = "create-react-app-with-html" },
             };
         }
     }
