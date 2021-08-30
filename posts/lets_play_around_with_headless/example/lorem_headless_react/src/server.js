@@ -8,5 +8,5 @@ export const shout = () => {
 
 export const render = () => {
 	var element = React.createElement(Application);
-	return ReactDOMServer.renderToString(element);
+	return ReactDOMServer.renderToStaticMarkup(element);
 }

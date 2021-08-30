@@ -21,7 +21,7 @@ export const render = (entrypoints) => {
 			${files.join('\n')}
 		</head>
 		<body>
-			${ReactDOMServer.renderToString(React.createElement(Application))}
+			${ReactDOMServer.renderToStaticMarkup(React.createElement(Application))}
 		</body>
 	</html>`
 }

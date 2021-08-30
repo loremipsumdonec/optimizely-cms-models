@@ -13,7 +13,7 @@ preamble: "Now when we have the principle of calling a simple JavaScript functio
 
 Now that we are going to use React, we also want to stick to the development tools and principles used in that "environment", this is for several reasons, but the main one is that it should be easy to find help and documentation.
 
-To create a new React project we can start with following the introduction [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) this will give us a base to start from.
+To create a React project we can start with following the introduction [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) this will give us a base to start from.
 
 ![](./resources/create_react_app_done.png)
 
@@ -21,7 +21,7 @@ When you have create a React project from `create-react-app` you should have som
 
 ## Explore the output
 
-The first thing we will examine is the type of output generated when we build the project with `npm run build`. What you will see after you run the command is that you get a build directory that contains a set of different files, several are JavaScript with varying names.
+The first thing we will examine is the type of output generated when we build the project with `npm run build`. This command will trigger a build and create directory that contains a set of different files, several are JavaScript with varying names.
 
 The most important file for now is _asset-manifest.json_. This file contains all the information we need to continue, below is an example.
 
@@ -51,7 +51,7 @@ The most important file for now is _asset-manifest.json_. This file contains all
 }
 ```
 
-It is mainly the property `entrypoints` that we are interested in as it contains the files needed for the client (browser) to run the React application. But if we try to load these into the JavaScript engine, we will have get an exception `ReferenceError: document is not defined`. The keyword is _document_. 
+It is mainly the property `entrypoints` that we are interested in as it contains the files needed run the React application. But if we try to load these into the JavaScript engine, we will have get an exception `ReferenceError: document is not defined`. The keyword is _document_. 
 
 ```csharp
 [Fact]
@@ -72,16 +72,16 @@ public void LoadEntryPoints_ShouldThrowException()
 }
 ```
 
-We try to run this outside of a browser and do not have access to either _document_ or _window_. The files in the `entrypoints` property are for a browser and not for server-side rendering, which you might have thought of if you saw the _css_ file.
+The reason for this error message is that we try to run this outside of a browser and do not have access to either _document_ or _window_. The files in the `entrypoints` property are for a browser and not for server-side rendering, which you might have thought of if you saw the _css_ file.
 
-> You can see this as a first rule when it comes to server-side rendering, never use documents or windows in code running on the server.
+> You can see this as a first rule when it comes to server-side rendering, never use document or window in code that runs on the server.
 
-In addition to this, there are several other frontend technologies that can be used that do not work when doing server-side rendering.
+There are several other frontend technologies that can be used that do not work when doing server-side rendering.
 Which means that you usually need to build the project in two variants, one for the browser and the other for the server.
 
 ## Build for server
 
-We need to add a function to the project so that we can build two variants of the same application; one for the client and the other for the server. The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react/src/server.js)
+The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react/src/server.js)
 
 ```javascript
 import React from 'react';
@@ -90,23 +90,27 @@ import Application from './App';
 
 export const render = () => {
 	var element = React.createElement(Application);
-	return ReactDOMServer.renderToString(element);
+	return ReactDOMServer.renderToStaticMarkup(element);
 }
 ```
 
 Another difference when rendering on the server is that you should use `ReactDOMServer.renderToString` or ` ReactDOMServer.renderToStaticMarkup` depending on whether you are going to start the application on the client such as a single-page application or if should _just_ be HTML , you can find more information about this [here](https://reactjs.org/docs/react-dom-server.html).
 
-But it is not enough to add a new file to the project, we also need to change some configuration. Which brings us to the second problem. 
+But it is not enough to add a new file to the project, we also need to change the build configuration. Which brings us to the second problem. 
 
 There is no standard to change the configuration in a `create-react-app` for how the project is to be built. Here we need to make a small sidestep from the standard to be able to move forward. 
 
-One alternative is to use the `eject` function in `create-react-app`, then we will get access to everything and be able to configure it exactly how we want. But this path will also add more complexity to the project. The second alternative is to use tools like [CRACO](https://github.com/gsoft-inc/craco) or [react-app-rewired](https://github.com/timarney/react-app-rewired) which will give us access to the configuration for `create-react-app` so we can override some changes. 
+One alternative is to use the `eject` function in `create-react-app`, then we will get access to everything and be able to configure it exactly how we want. But this path will also add more complexity to the project. 
+
+The second alternative is to use tools like [CRACO](https://github.com/gsoft-inc/craco) or [react-app-rewired](https://github.com/timarney/react-app-rewired) which will give us access to the configuration for `create-react-app` so we can override some changes. 
 
 ### Configure
 
 Install CRACO by following the [installation guide](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation), you will also need to install `cross-env` with `npm install cross-env --save-dev`.  
 
-The next step is to add a new script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/craco.config.js). Besides setting the entry to _server.js_ we will also need to change some other configuration, like specifying a library. 
+The next step is to add a script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/craco.config.js). 
+
+> Besides setting the entry to _server.js_ we will also need to change some other configuration, like specifying a library. 
 
 ```javascript
 const serverSettings = {
@@ -149,7 +153,7 @@ module.exports = {
 
 > If you want to learn more about the configuration for `create-react-app`, you can find the source code [here](https://github.com/facebook/create-react-app/blob/main/packages/react-scripts/config/webpack.config.js#L188), and the documentation for `entry` in the `webpack` can be found [here](https://webpack.js.org/concepts/entry-points/).
 
-When we run the new build script `npm run build:server` we will get a JavaScript built for the server at the location _build/server/server.js_ which can be used to run the React Application on the server.
+When we run the new build script `npm run build:server` we will get a JavaScript built for the server at the location _build/server/server.js_ which can be used to run the React Application.
 
 ### Run the server.js
 
@@ -170,7 +174,7 @@ public void LoadServer_ThrowsArgumentException()
 }
 ```
 
-We can workaround this problem by using a function wrapper for the function `lorem.render`.
+We can go around this problem by using a wrapper for the function `lorem.render`.
 
 ```csharp
 [Fact]
