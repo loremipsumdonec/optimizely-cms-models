@@ -18,7 +18,7 @@ preamble: "Now it's time to start writing some code that we can use in Optimizel
 
 For it to be possible to render, the output from the frontend projects needs to be available in the Optimizely CMS project. You can, for example, take the entire build directory and place it under Assets. If you want to have several different frontend projects in the same Optimizely CMS project, you need to place the frontend projects in separate catalogs.
 
-> I usually work with the frontend project being in a own repository and when the frontend team then makes a release, it will trigger a pipeline/workflow that automatically builds and commits the output in the repository where Optimizely CMS is located, it also creates a pull/merge request.
+> I usually work with the frontend project being in a separate repository and when the frontend team then makes a release, it will trigger a pipeline/workflow that automatically builds and commits the output in the repository where Optimizely CMS is located, it also creates a pull/merge request.
 
 ## Configuration
 
@@ -61,7 +61,7 @@ Now it’s time to add a render function in the ASP.NET MVC pipeline. A good can
 
 With the help from `IActionFilter` we can change the `ActionResult` after the controller. This will make it possible to have the same structure in the controllers, and we do not need to think so much about how the data will be presented at that point.
 
-> I use `ActionResult` when I need to do some type of transformation, for example transforming a `CalendarEventPage` to [ical](https://en.wikipedia.org/wiki/ICalendar) format or a SiteMapPage to xml or html. Usually, you can use the same model, but there will be cases when you will need a different controller depending on the format.
+> I use `ActionResult` when I need to do some type of transformation, for example transforming a `CalendarEventPage` to [ical](https://en.wikipedia.org/wiki/ICalendar) format or a SiteMapPage to xml or html. Usually, you can use the same controller and model, but there will be cases when you will need a different controller.
 
 We will need a separate `IActionFilter` for each frontend project, this will make it simpler to manage specific logic for each frontend project, see [CreateReactAppActionFilter.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/CreateReactApp/CreateReactAppActionFilter.cs).
 
@@ -235,4 +235,4 @@ function App() {
 
 ## Conclusion
 
-We have now succeeded in server-side rendering the React application in Opti CMS and we have a good foundation to continue working with. In the next part, we will focus on using view models and build a slightly more classic page, which has a navigation and some other functions.
+We have now succeeded in server-side rendering the React application in Optimizely CMS and we have a good foundation to continue working with. In the next part, we will focus on using view models and build a slightly more classic application, which has a navigation and some other functions.
