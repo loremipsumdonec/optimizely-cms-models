@@ -227,7 +227,7 @@ function App() {
 }
 ```
 
-> Like everything, there are several solutions to the problem, here I take a simpler solution. It is rare to have problems with several frontend projects having conflict with the files. But when it happens, you simply must change the name so that it becomes unique.
+> Like everything, there are several solutions to the problem, here I take a simpler solution. It is rare to have problems with several frontend projects having conflict with the files. But when it happens, you change the name so that it becomes unique.
 
 ![](./resources/create_react_app_ssr_done.png)
 
