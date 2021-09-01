@@ -1,0 +1,29 @@
+{
+    "content": {
+        "heading": "Welcome to Lorem",
+        "preamble": "Percipit nullam intellegat tota te justo accusam mentitum ubique meliore expetendis appareat possit suscipiantur.",
+        "url": "/",
+        "articles": [{
+            "heading": "Malis reprimique voluptua convenire nostrud",
+            "preamble": "Civibus denique id animal fastidii definitionem postulant. Dicta aperiam nostrum conceptam. Mundi vero. Copiosae. Facilis.",
+            "url": "/qualisque-no/"
+        }, {
+            "heading": "Postea scripta nam",
+            "preamble": "Eripuit dicunt ad lorem corpora pro percipit an corrumpit vim. Legimus eam. Dicam.",
+            "url": "/vim/"
+        }, {
+            "heading": "Ullamcorper sit definitiones aperiam",
+            "preamble": "Libris duo. Vis vel eos nostro euripidis bonorum. Quot summo oportere mundi. Ea vide.",
+            "url": "/corpora/"
+        }, {
+            "heading": "Commodo tation quod magna vivendo",
+            "preamble": "Placerat elit detracto iisque postulant simul mollis. Alii quaeque. Dolorum. Munere prodesset omnesque explicari rebum.",
+            "url": "/explicari-petentium/"
+        }, {
+            "heading": "Adolescens dico cotidieque maiorum tacimates",
+            "preamble": "No nonumy ne illum. Virtute adolescens recusabo nisl ullamcorper. Veniam. Suscipiantur forensibus nonumes. Vero. Apeirian.",
+            "url": "/duo-agam/"
+        }],
+        "modelType": "StartPage"
+    }
+}

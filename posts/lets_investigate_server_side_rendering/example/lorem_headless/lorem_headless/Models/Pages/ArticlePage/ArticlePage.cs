@@ -7,11 +7,8 @@ namespace lorem_headless.Models.Pages
 {
     [ContentType(GUID = "A8E658BE-71AC-477F-A672-2FC10C367C90", DisplayName = "Article")]
     public class ArticlePage
-        : PageData
+        : SitePage
     {
-        [Display(Order = 1)]
-        public virtual string Heading { get; set; }
-
         [Display(Order = 2), UIHint(UIHint.Textarea)]
         public virtual string Preamble { get; set; }
 

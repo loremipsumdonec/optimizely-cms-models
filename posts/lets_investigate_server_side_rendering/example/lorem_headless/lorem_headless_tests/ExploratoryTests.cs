@@ -1,6 +1,8 @@
 ﻿using Lorem.Test.Framework.Optimizely.CMS.Builders;
+using Lorem.Test.Framework.Optimizely.CMS.Utility;
 using lorem_headless.Models.Pages;
 using lorem_headless_tests.Services;
+using System.Text;
 using Xunit;
 
 namespace lorem_headless_tests
@@ -27,6 +29,31 @@ namespace lorem_headless_tests
         public void CreateSiteWithACreateReactAppWithHtml()
         {
             Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app-with-html");
+        }
+
+        [Fact]
+        public void CreateSiteWithCreateReactAppFinal() 
+        {
+            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app-final")
+                .CreateMany<ArticlePage>(5,p=> {
+                    p.VisibleInMenu = true;
+                    p.Heading = IpsumGenerator.Generate(3, 6, false);
+                    p.Preamble = IpsumGenerator.Generate(12, 16);
+
+                    StringBuilder builder = new StringBuilder();
+
+                    for(int index=0;index < 7; index++) 
+                    {
+                        if(index % 3 == 0) 
+                        {
+                            builder.Append($"<h2>{IpsumGenerator.Generate(5, 6)}");
+                        }
+
+                        builder.Append($"<p>{IpsumGenerator.Generate(12, 29)}</p>");
+                    }
+
+                    p.Text = new EPiServer.Core.XhtmlString(builder.ToString());
+                });
         }
     }
 }

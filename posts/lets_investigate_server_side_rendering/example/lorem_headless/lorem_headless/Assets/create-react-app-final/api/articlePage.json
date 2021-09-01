@@ -1,0 +1,37 @@
+{
+    "content": {
+        "heading": "Welcome to Lorem ipsum",
+        "preamble": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et tincidunt mi. Sed ut velit magna. Integer interdum euismod tortor ac euismod. Fusce ac ultrices diam, vel efficitur enim. Ut sapien ipsum, tincidunt quis pulvinar non, malesuada ac ligula. Nam pharetra consequat ipsum, at bibendum dolor dictum id. Vivamus sollicitudin velit porta lacus luctus commodo. Sed molestie, ex fringilla vehicula tincidunt, nulla justo fringilla libero, at venenatis elit sapien a augue. In viverra dictum nunc, vitae ultricies tellus feugiat at. Vestibulum semper faucibus aliquam.",
+        "text": "<h2>Nunc et tincidunt mi</h2><p>orem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et tincidunt mi. Sed ut velit magna. Integer interdum euismod tortor ac euismod. Fusce ac ultrices diam, vel efficitur enim. Ut sapien ipsum, tincidunt quis pulvinar non, malesuada ac ligula. Nam pharetra consequat ipsum, at bibendum dolor dictum id. Vivamus sollicitudin velit porta lacus luctus commodo. Sed molestie, ex fringilla vehicula tincidunt, nulla justo fringilla libero, at venenatis elit sapien a augue. In viverra dictum nunc, vitae ultricies tellus feugiat at. Vestibulum semper faucibus aliquam.</p>",
+        "modelType": "ArticlePage"
+    },
+    "breadcrumbs": {
+        "breadcrumbs": [
+            {
+                "text": "Adipiscing elit",
+                "url": "/first-page"
+            },
+            {
+                "text": "Sed ut velit magna",
+                "url": "/first-page",
+                "isActive": true
+            }
+        ]
+    },
+    "navigation": {
+        "items": [
+            {
+                "text": "Adipiscing elit",
+                "url": "/first-page"
+            },
+            {
+                "text": "Sed ut velit magna",
+                "url": "/first-page"
+            },
+            {
+                "text": "Integer interdum euismod tortor",
+                "url": "/first-page"
+            }
+        ]
+    }
+}

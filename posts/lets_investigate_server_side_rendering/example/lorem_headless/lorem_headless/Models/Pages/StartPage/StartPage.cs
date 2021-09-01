@@ -10,11 +10,8 @@ namespace lorem_headless.Models.Pages
 {
     [ContentType(GUID = "62E61CA4-168B-4823-99F7-5443313D2073", DisplayName = "Start")]
     public class StartPage
-        : PageData
+        : SitePage
     {
-        [Display(Order = 1)]
-        public virtual string Heading { get; set; }
-
         [Display(Order = 2), UIHint(UIHint.Textarea)]
         public virtual string Preamble {  get; set; }
 
@@ -32,9 +29,9 @@ namespace lorem_headless.Models.Pages
         public IEnumerable<ISelectItem> GetSelections(ExtendedMetadata metadata)
         {
             return new List<ISelectItem>() { 
-                new SelectItem() { Text = "Razor", Value = "razor" },
                 new SelectItem() { Text = "React, create react app", Value = "create-react-app" },
                 new SelectItem() { Text = "React, create react app with html", Value = "create-react-app-with-html" },
+                new SelectItem() { Text = "React, final", Value = "create-react-app-final" },
             };
         }
     }

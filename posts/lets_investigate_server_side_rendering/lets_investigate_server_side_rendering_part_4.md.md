@@ -9,7 +9,7 @@ preamble: "Now it's time to build a single-page application with React and Optim
 
 ## Frontend
 
-The frontend will need a function to simulate an REST API, so we can start without any existing REST API in the backend. We don’t need any advanced function, so we can simulate it by adding json files in the _/public/api_ directory. Then we can call the REST API by adding _/api_ in the url and sending with `application/json` accepth header. The React application will also need to handle routing, state, stylesheets etc. and for this we will use the following.
+The frontend will need a function to simulate an REST API, so we can start without any existing REST API in the backend. We don’t need any advanced function, so we can simulate it by adding json files in the _/public/api_ directory. Then we can call the REST API by adding _/api_ in the url and sending with `application/json` accept header. The React application will also need to handle routing, state, stylesheets etc. and for this we will use the following.
 
 - [react-router-dom](https://reactrouter.com/)
 - [react-redux](https://react-redux.js.org/)
@@ -33,7 +33,7 @@ The next thing to think about is how the data sent from the REST API will be str
 }
 ```
 
-But how do we know it's an `ArticlePage`? It does not appear anywhere in the json, so we need to extend it with a new property.
+But how do we know it's an `ArticlePage`? It does not appear anywhere in the json, so we need to add a property.
 
 ```json
 {
@@ -45,6 +45,8 @@ But how do we know it's an `ArticlePage`? It does not appear anywhere in the jso
 ```
 
 Now it will be possible to identify what type of content is delivered.
+
+### We need more
 
 A website has more features, such as a navigation, breadcrumbs etc. How should this be stored in the json? We need to change the structure of JSON to something like below.
 
@@ -59,7 +61,7 @@ A website has more features, such as a navigation, breadcrumbs etc. How should t
     "navigation": {
         "items": [
             { 
-                text: "Articles", 
+                "text: "Articles", 
                 "url": "/articles"
             }
         ]
@@ -69,3 +71,4 @@ A website has more features, such as a navigation, breadcrumbs etc. How should t
     }
 }
 ```
+
