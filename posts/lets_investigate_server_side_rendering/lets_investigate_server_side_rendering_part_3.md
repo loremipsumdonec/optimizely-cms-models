@@ -24,7 +24,7 @@ For each frontend project that should be used in the Optimizely CMS will need a 
 
 I the example below you can see that we load the _server.js_ file and add the wrapper function, see [CreateReactAppInitialization.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless/Features/CreateReactApp/Initialization/CreateReactAppInitialization.cs)
 
-> `IJavaScriptManager` is a service that owns the configuration for each engine, and you can find the code [here](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/Render/Services/DefaultJavaScriptManager.cs).
+> `IJavaScriptManager` is a service that owns the configuration for each engine, and you can find the code [here](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless/Features/Render/Services/DefaultJavaScriptManager.cs).
 
 ```csharp
 
@@ -233,4 +233,4 @@ function App() {
 
 ## Conclusion
 
-We have now succeeded in server-side rendering the React application in Optimizely CMS and we have a good foundation to continue working with. In the next part, we will focus on using view models and build a slightly more classic application, which has a navigation and some other functions.
+We have now succeeded in server-side rendering the React application in Optimizely CMS and we have a good foundation to continue working with. In the next part, we will focus on build a slightly more classic application.

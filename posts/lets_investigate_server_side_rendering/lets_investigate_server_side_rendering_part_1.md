@@ -14,7 +14,7 @@ Create a new project, it can be anything from a console, test to a web project, 
 - [JavaScriptEngineSwitcher.V8](https://www.nuget.org/packages/JavaScriptEngineSwitcher.V8/)
 - [Microsoft.ClearScript.V8.Native.win-x64](https://www.nuget.org/packages/Microsoft.ClearScript.V8.Native.win-x64/) or [Microsoft.ClearScript.V8.Native.win-x86](https://www.nuget.org/packages/Microsoft.ClearScript.V8.Native.win-x86/)
 
-> All examples will be from test cases that I have set up in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless) and from file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_tests/JavaScriptEngineTests.cs)
+> All examples will be from test cases that I have set up in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless) and from file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_tests/JavaScriptEngineTests.cs)
 
 If you choose to use _Microsoft.ClearScript.V8.Native.win-x64_ then you will need to change _Platform target_ from _Any CPU_ to _x64_ in the project properties. Unless you are using Visual Studio 2022 preview.
 
@@ -42,7 +42,7 @@ public void CallFunction_WithNoInput_ReturnMessage()
 }
 ```
 
-It's also possible to send input to a function, such as a simple calculation of two values.
+It's also possible to send input to a function, for example to get a sum of two values.
 
 ```csharp
 [Fact]

@@ -16,7 +16,7 @@ The frontend will need a function to simulate an REST API, so we can start witho
 - [tailwindcss](https://tailwindcss.com/)
 - [axios](https://github.com/axios/axios)
 
-> The example project for frontend can be found [here](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react_page)
+> The example project for frontend can be found [here](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless_react_page)
 
 ### Routing
 

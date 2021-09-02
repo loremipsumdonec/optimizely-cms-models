@@ -11,13 +11,13 @@ preamble: "Now when we have the principle of calling a simple JavaScript functio
 
 ## Create a React project
 
-Now that we are going to use React, we also want to stick to the development tools and principles used in that "environment", this is for several reasons, but the main one is that it should be easy to find help and documentation.
+Now that we are going to use React, we also want to stick to the development tools and principles used in that environment, this is for several reasons, but the main one is that it should be easy to find help and documentation.
 
 To create a React project we can start with following the introduction [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html) this will give us a base to start from.
 
 ![](./resources/create_react_app_done.png)
 
-When you have create a React project from `create-react-app` you should have something as the above.
+When you have created a React project from `create-react-app` you should have something as the above.
 
 ## Explore the output
 
@@ -81,7 +81,7 @@ Which means that you usually need to build the project in two variants, one for 
 
 ## Build for server
 
-The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_react/src/server.js)
+The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless_react/src/server.js)
 
 ```javascript
 import React from 'react';
