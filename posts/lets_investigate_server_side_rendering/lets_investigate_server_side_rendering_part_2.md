@@ -7,7 +7,7 @@ title: "Start with React"
 preamble: "Now when we have the principle of calling a simple JavaScript function from .NET, it is time to look at React and explore what the differences will be from a simple JavaScript. "
 ---
 
-> All .NET examples will be from test cases that I have created in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless) and from file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_tests/CreateReactAppTests.cs), and the examples for React will be from the project [lorem_headless_react](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless_react)
+> All .NET examples will be from test cases that I have created in the example project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless) and from file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_tests/CreateReactAppTests.cs), and the examples for React will be from the project [lorem_headless_react](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless_react)
 
 ## Create a React project
 
@@ -81,7 +81,7 @@ Which means that you usually need to build the project in two variants, one for 
 
 ## Build for server
 
-The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_react/src/server.js)
+The first thing we can do is add an entry point to the application that can be used for server-side rendering, similar to _index.js_ which is for the browser. Create a new file called _server.js_ with the following content, see this file for an example [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_react/src/server.js)
 
 ```javascript
 import React from 'react';
@@ -108,7 +108,7 @@ The second alternative is to use tools like [CRACO](https://github.com/gsoft-inc
 
 Install CRACO by following the [installation guide](https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation), you will also need to install `cross-env` with `npm install cross-env --save-dev`.  
 
-The next step is to add a script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react/craco.config.js). 
+The next step is to add a script in the [_package.json_](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless_react/package.json) for building with the _server.js_ as entry point, and in the _craco.config.js_ we can add the following code, see the [craco.config.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless_react/craco.config.js). 
 
 > Besides setting the entry to _server.js_ we will also need to change some other configuration, like specifying a library. 
 
