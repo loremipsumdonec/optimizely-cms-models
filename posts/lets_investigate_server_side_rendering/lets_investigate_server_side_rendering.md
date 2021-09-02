@@ -19,5 +19,5 @@ preamble: "This post will give an introduction on how to use technologies such a
 
 The focus will be on server-side rendering and how to set up the frontend, not so much focus on the Optimizly CMS project, more on the principles and how to send information from Optimizly CMS to the frontend.
 
-See this post as an introduction to getting started to explore server-side rendering.
+See this post as an introduction to getting started with server-side rendering.
 
