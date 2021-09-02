@@ -7,7 +7,7 @@ title: "Time to render"
 preamble: "Now it's time to start writing some code that we can use in Optimizely CMS to get a server-side rendering with React."
 ---
 
-> There are some base features in the project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless), and I will not go into depth for these. The project has extended the routing so that it is possible to write http://localhost:59590/index.json to get the content in json. 
+> There are some base features in the project [lorem_headless](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_investigate_server_side_rendering/example/lorem_headless), and I will not go into depth for these. The project has extended the routing so that it is possible to write http://localhost:59590/index.json to get the content in json. 
 >
 > The project also uses an `IFilterProvider` to be able to add filters in a request based on some business logic. Which in this case checks if the controller is a `IWebController`.
 >
@@ -22,7 +22,7 @@ For it to be possible to render, the output from the frontend projects needs to 
 
 For each frontend project that should be used in the Optimizely CMS will need a separate configuration, and a good place for this is in a `IInitializableModule`.
 
-I the example below you can see that we load the _server.js_ file and add the wrapper function, see [CreateReactAppInitialization.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/CreateReactApp/Initialization/CreateReactAppInitialization.cs)
+I the example below you can see that we load the _server.js_ file and add the wrapper function, see [CreateReactAppInitialization.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless/Features/CreateReactApp/Initialization/CreateReactAppInitialization.cs)
 
 > `IJavaScriptManager` is a service that owns the configuration for each engine, and you can find the code [here](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/Render/Services/DefaultJavaScriptManager.cs).
 
@@ -61,7 +61,7 @@ With the help from `IActionFilter` we can change the `ActionResult` after the co
 
 > I use `ActionResult` when I need to do some type of transformation, for example transforming a `CalendarEventPage` to [ical](https://en.wikipedia.org/wiki/ICalendar) format or a SiteMapPage to xml or html. Usually, you can use the same controller and model, but there will be cases when you will need a different controller.
 
-We will need a separate `IActionFilter` for each frontend project, this will make it simpler to manage specific logic for each frontend project, see [CreateReactAppActionFilter.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless/Features/CreateReactApp/CreateReactAppActionFilter.cs).
+We will need a separate `IActionFilter` for each frontend project, this will make it simpler to manage specific logic for each frontend project, see [CreateReactAppActionFilter.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless/Features/CreateReactApp/CreateReactAppActionFilter.cs).
 
 > In the example project I have also created a separate `ActionResult` for each frontend project, this is only to minimize the complexity and make the examples easier to understand. In a _real world_, you will only need one `ActionResult`.
 
