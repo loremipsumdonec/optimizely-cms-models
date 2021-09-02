@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-icons-outlined {
+    font-family: "Material Icons";
+}
+
+.page-overlay--white {
+    background: rgba(255, 255, 255, 0.7);
+    min-height: calc(100% - 10.5rem);
+    -webkit-backdrop-filter: blur(0.125rem);
+    backdrop-filter: blur(0.125rem);
+}
+
+.breadcrumbs__item:after {
+    content: '/';
+    margin-left: 0.5rem;
+}
+
+.breadcrumbs__item.parent:after {
+    content: '/';
+}
+
+.breadcrumbs__item:last-child {
+    margin-right: 0;
+}
+
+.breadcrumbs__item:last-child:after {
+    content: '';
+    margin-left: 0;
+}
+
+.article h1 {
+    @apply text-5xl mb-8 border-b border-gray-200 font-semibold pb-2;
+}
+
+.article h2 {
+    @apply text-3xl mb-4 mt-6 border-b border-gray-200 font-semibold pb-2;
+}
+
+.article h3 {
+    @apply text-2xl mb-2 mt-6 pb-2;
+}
+
+.article h4 {
+    @apply text-2xl mb-2 mt-6 pb-2;
+}
+
+.article blockquote {
+    @apply mb-2 mt-6 pl-4 border-l-4;
+}
+
+.article.blue blockquote {
+    @apply border-blue-600;
+}
+
+.article.pink blockquote {
+    @apply border-pink-600;
+}
+
+.article.red blockquote {
+    @apply border-red-600;
+}
+
+.article.yellow blockquote {
+    @apply border-yellow-600;
+}
+
+.article.indigo blockquote {
+    @apply border-indigo-600;
+}
+
+.article.purple blockquote {
+    @apply border-purple-600;
+}
+
+.article.green blockquote {
+    @apply border-green-600;
+}
+
+.article blockquote > p {
+    @apply text-xl;
+}
+
+.article pre {
+    white-space: break-spaces;
+}
+
+.article a {
+    @apply font-light no-underline border-b;
+}
+
+.article.blue a {
+    @apply text-blue-600 border-blue-200 hover:border-blue-600;
+}
+
+.article.pink a {
+    @apply text-pink-600 border-pink-200 hover:border-pink-600;
+}
+
+.article.red a {
+    @apply text-red-600 border-red-400 hover:border-red-600;
+}
+
+.article.yellow a {
+    @apply text-yellow-600 border-yellow-400 hover:border-yellow-600;
+}
+
+.article.indigo a {
+    @apply text-indigo-600 border-indigo-400 hover:border-indigo-600;
+}
+
+.article.purple a {
+    @apply text-purple-600 border-purple-400 hover:border-purple-600;
+}
+
+.article.green a {
+    @apply text-green-600 border-green-400 hover:border-green-600;
+}
+
+.article p {
+    @apply mb-4 text-lg text-gray-900;
+}
+
+.article ul {
+    @apply ml-10 list-disc font-light text-lg mb-4;
+}
