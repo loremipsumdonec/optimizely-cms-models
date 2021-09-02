@@ -42,7 +42,7 @@ namespace lorem_headless_tests
 
                     StringBuilder builder = new StringBuilder();
 
-                    for(int index=0;index < 7; index++) 
+                    for(int index=0;index < 13; index++) 
                     {
                         if(index % 3 == 0) 
                         {
