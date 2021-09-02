@@ -79,9 +79,9 @@ In the previous examples we have used the function `ReactDOMServer.renderToStati
 
 >  Another detail is that on the client side you need to use `ReactDOM.hydrate`, read more about this [here](https://reactjs.org/docs/react-dom.html#hydrate).
 
-This is done by storing the model in the [HTML](). When react starts up on the client side, the application has access to the same data without having to make any extra API calls. Check out both the [server.js]() and [index.js]() files in the example project. 
+This is done by storing the model in the [HTML](). When react starts up on the client side, the application has access to the same data without having to make any extra API calls. Check out both the [server.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react_page/src/server.js) and [index.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react_page/src/index.js) files in the example project. 
 
-To render a page, you need to link a component to `modelType`, see [ContentFactory.js]()
+To render a page, you need to link a component to `modelType`, see [ContentFactory.js](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless_react_page/src/Components/ContentFactory/ContentFactory.js)
 
 ## Backend
 
@@ -112,7 +112,7 @@ public class StartPageController
 
 ## Test yourself
 
-If you want to test the application, you can find the example project here. Start by running the test case [CreateSiteWithCreateReactAppFinal](), this will create a database and add some content. After that, it should just be to run the application.
+If you want to test the application, you can find the example project here. Start by running the test case [CreateSiteWithCreateReactAppFinal](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/lets_play_around_with_headless/example/lorem_headless/lorem_headless_tests/ExploratoryTests.cs#L35), this will create a database and add some content. After that, it should just be to run the application.
 
 > As with all projects, always check the settings in Web.config before you start
 
