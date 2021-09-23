@@ -1,6 +1,6 @@
 ---
 type: "chapter"
-book: "/optimizely/ssr_with_react_and_graphql"
+book: "/optimizely/ssr-with-react-and-graphql"
 chapter: "/part-1"
 
 title: "Let's start with javascript"

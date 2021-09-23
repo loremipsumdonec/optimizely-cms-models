@@ -1,7 +1,7 @@
 ---
 date: "2021-09-23"
 type: "book"
-book: "/optimizely/ssr_with_react_and_graphql"
+book: "/optimizely/ssr-with-react-and-graphql"
 theme: "red"
 state: "in_progress"
 tags: [""]
