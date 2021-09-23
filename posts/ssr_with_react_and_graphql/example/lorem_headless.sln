@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lorem_headless", "lorem_headless\lorem_headless.csproj", "{D79EBA68-88B1-45F1-AA1D-526E4B48CE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lorem_headless_tests", "lorem_headless_tests\lorem_headless_tests.csproj", "{5272CE85-A029-4F6D-97A9-87F00AD60624}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D79EBA68-88B1-45F1-AA1D-526E4B48CE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D79EBA68-88B1-45F1-AA1D-526E4B48CE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D79EBA68-88B1-45F1-AA1D-526E4B48CE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D79EBA68-88B1-45F1-AA1D-526E4B48CE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5272CE85-A029-4F6D-97A9-87F00AD60624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5272CE85-A029-4F6D-97A9-87F00AD60624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5272CE85-A029-4F6D-97A9-87F00AD60624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5272CE85-A029-4F6D-97A9-87F00AD60624}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {578885C8-8D1D-483F-A20C-FD44A6F21149}
+	EndGlobalSection
+EndGlobal
