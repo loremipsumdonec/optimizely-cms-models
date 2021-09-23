@@ -1,0 +1,87 @@
+{
+    "variables": {
+        "limit": 10
+    },
+    "extensions": {},
+    "operationName": "GetLaunchesPast",
+    "query": {
+        "kind": "Document",
+        "definitions": [{
+            "kind": "OperationDefinition",
+            "operation": "query",
+            "name": {
+                "kind": "Name",
+                "value": "GetLaunchesPast"
+            },
+            "variableDefinitions": [{
+                "kind": "VariableDefinition",
+                "variable": {
+                    "kind": "Variable",
+                    "name": {
+                        "kind": "Name",
+                        "value": "limit"
+                    }
+                },
+                "type": {
+                    "kind": "NonNullType",
+                    "type": {
+                        "kind": "NamedType",
+                        "name": {
+                            "kind": "Name",
+                            "value": "Int"
+                        }
+                    }
+                },
+                "directives": []
+            }],
+            "directives": [],
+            "selectionSet": {
+                "kind": "SelectionSet",
+                "selections": [{
+                    "kind": "Field",
+                    "name": {
+                        "kind": "Name",
+                        "value": "launchesPast"
+                    },
+                    "arguments": [{
+                        "kind": "Argument",
+                        "name": {
+                            "kind": "Name",
+                            "value": "limit"
+                        },
+                        "value": {
+                            "kind": "Variable",
+                            "name": {
+                                "kind": "Name",
+                                "value": "limit"
+                            }
+                        }
+                    }],
+                    "directives": [],
+                    "selectionSet": {
+                        "kind": "SelectionSet",
+                        "selections": [{
+                            "kind": "Field",
+                            "name": {
+                                "kind": "Name",
+                                "value": "mission_name"
+                            },
+                            "arguments": [],
+                            "directives": []
+                        }, {
+                            "kind": "Field",
+                            "name": {
+                                "kind": "Name",
+                                "value": "__typename"
+                            }
+                        }]
+                    }
+                }]
+            }
+        }],
+        "loc": {
+            "start": 0,
+            "end": 91
+        }
+    }
+}

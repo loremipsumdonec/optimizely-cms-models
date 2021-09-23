@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.89a598ba.chunk.css",
+    "main.js": "/static/js/main.b35bf358.chunk.js",
+    "main.js.map": "/static/js/main.b35bf358.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2f0b4456.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2f0b4456.js.map",
+    "static/css/2.d2bccba4.chunk.css": "/static/css/2.d2bccba4.chunk.css",
+    "static/js/2.e82ed116.chunk.js": "/static/js/2.e82ed116.chunk.js",
+    "static/js/2.e82ed116.chunk.js.map": "/static/js/2.e82ed116.chunk.js.map",
+    "static/js/3.75376ef3.chunk.js": "/static/js/3.75376ef3.chunk.js",
+    "static/js/3.75376ef3.chunk.js.map": "/static/js/3.75376ef3.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.d2bccba4.chunk.css.map": "/static/css/2.d2bccba4.chunk.css.map",
+    "static/css/main.89a598ba.chunk.css.map": "/static/css/main.89a598ba.chunk.css.map",
+    "static/js/2.e82ed116.chunk.js.LICENSE.txt": "/static/js/2.e82ed116.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/material-icons-base-400-normal.d72aa1b5.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f0b4456.js",
+    "static/css/2.d2bccba4.chunk.css",
+    "static/js/2.e82ed116.chunk.js",
+    "static/css/main.89a598ba.chunk.css",
+    "static/js/main.b35bf358.chunk.js"
+  ]
+}
