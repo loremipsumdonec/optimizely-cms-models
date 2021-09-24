@@ -3,17 +3,14 @@ import ReactDOM from 'react-dom';
 import {
 	ApolloClient,
 	InMemoryCache,
-  ApolloProvider,
-  createHttpLink
+  ApolloProvider
 } from "@apollo/client";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const client = new ApolloClient({
-  link: createHttpLink({
-    uri: 'https://api.spacex.land/graphql'
-  }),
-  cache: new InMemoryCache(),
+  uri: 'https://api.spacex.land/graphql',
+  cache: new InMemoryCache()
 });
 
 ReactDOM.render(
