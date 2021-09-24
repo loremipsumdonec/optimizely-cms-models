@@ -7,22 +7,17 @@ title: "Create a frontend project"
 preamble: "We will start by setting up a very simple front-end project that uses a public GraphQL service. We will then use this project to get an server-side rendering."
 ---
 
-The project will be built with the create-react app and use Apollo client to manage GraphQL. The project will have a simple component that retrieves data from https://api.spacex.land/graphql/ with the following query.
-
-```graphql
-query GetLaunchesPast($limit:Int!)
-{
-  launchesPast(limit: $limit) {
-    mission_name
-  }
-}
-```
+The project will be built with [create-react-app](https://create-react-app.dev/) and use [Apollo Client](https://www.apollographql.com/docs/react/) to manage GraphQL. We will start with a simple simple component that retrieves data from https://api.spacex.land/graphql/.
 
 > To get started with a project using React and Apollo client, follow this [guide](https://www.apollographql.com/docs/react/get-started/).
 
-## Two entry points to the application
+I have created a component called Missions that retrieves and prints the 10 latest mission names, below is a picture of what it looks like when rendered in the browser. You can find the frontend project here XYK.
 
-We will need two entry points to the application, one for the browser and the other for the server. For Apollo Client to work correctly on the server side, we will need to have some other settings and also extract the state and save the state in the html document so the application can hydrate correct in the browser.
+![](./resources/missons_component.png)
+
+## Update the render method
+
+For Apollo Client to work correctly on the server side, we will need to set some settings and also extract the state and save it in the html document so the application can rehydrate in the browser.
 
 > You can find more information on how to enable server-side rendering for Apollo Client [here](https://www.apollographql.com/docs/react/performance/server-side-rendering/) 
 
@@ -33,17 +28,6 @@ export const render = async (entrypoints) => {
 	const initialApolloClientState = client.extract();
 
 	var files = [];
-
-	if(entrypoints) {
-		for (const entrypoint of entrypoints) {
-			if(entrypoint.endsWith('.css')) {
-				files.push(`<link rel="stylesheet" href="${entrypoint}">`)
-				continue;
-			}
-	
-			files.push(`<script src="${entrypoint}"></script>`)
-		}
-	}
 
 	const html = ` 
 		<html>
@@ -58,17 +42,47 @@ export const render = async (entrypoints) => {
 			</body>
 		</html>`
 
-	// eslint-disable-next-line no-undef
-	Connector.Send(html);
+    ....
 }
 ```
 
 ## Communication
 
-We will also need to change a bit how Apollo Client calls the GraphQL services. By default, when setting up Apollo Client in the browser, you use the createHttpLink function. Which creates an `HttpLink` which in turn uses `fetch`.
+By default, when setting up Apollo Client it uses `fetch` . When rendering the application on the server we don't have access to `fetch`, so we need to customize Apollo Client´s data flow and we can do this with [links](https://www.apollographql.com/docs/react/api/link/introduction/).
 
-But when we are going to render the application on the server side, we need to change how this works, mainly because fetch is not available.
+With a new link and a custom service called `Connector` that we add with `AddHostObject` we can make it possible to send requests to the backend when server-side rendering. I will show more of this service in the next chapter.
+
+```javascript
+const directCommunicationWithBackend = new ApolloLink((operation, _) => {
+
+	const { operationName, variables, query } = operation;
+  
+	let body = {
+	  operationName,
+	  variables,
+	  query: print(query)
+	}
+  
+	return new Observable(observer => {
+
+		// eslint-disable-next-line no-undef
+		Connector.Execute('https://api.spacex.land/graphql', JSON.stringify(body))
+			.then(response => { 
+				operation.setContext({response});	
+
+				var result = JSON.parse(response);
+				
+				observer.next(result);
+				observer.complete();
+				
+				return result;
+			});
+		});
+});
+```
+
+When working with links the graphql query will be in AST format and convert it to a string we need to use the [print](https://graphql.org/graphql-js/language/#print) function that comes with [graphql](graphql/language) package.
 
 ## Conclusion
 
-This is the basic principle of how to handle the problem with async function, then you can do musch more things with `AddHostObject`.
+This in itself does not have much to do with Optimizly CMS, but we start with some basics before we introduce GraphQL support for Optimizly CMS. In the next chapter, we will focus on connecting this project with the backend.

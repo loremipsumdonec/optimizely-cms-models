@@ -16,7 +16,7 @@ preamble: "In my previous post, I showed how to get started with server-side ren
 
 ---
 
-In the previous setup that I showed in the post [Server-side rendering with React](https://www.tiff.se/optimizely/lets-investigate-server-side-rendering) , the backend delivered a complete model with all the data to the frontend for the current page. Which meant that the backend needed to know which features a page should use. This usually leads to little over-fetching. 
+In the previous setup that I showed in the post [Server-side rendering with React](https://www.tiff.se/optimizely/lets-investigate-server-side-rendering), the backend delivered a complete model with all the data to the frontend for the current page. Which meant that the backend needed to know which features a page should use. This usually leads to little over-fetching. 
 
 [GraphQL](https://graphql.org/) makes it possible for frontend to query the data needed, and this is more based on what components are used on the current page. Backend does not need to have some deeper knowledge of exactly what features a page should use, but can focus on building separate features. This also forces the backend to follow a different structure that opens a few more other benefits, such as better monitoring.
 
