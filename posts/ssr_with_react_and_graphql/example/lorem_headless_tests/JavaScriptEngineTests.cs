@@ -1,12 +1,9 @@
-using JavaScriptEngineSwitcher.V8;
 using Lorem.Test.Framework.Optimizely.CMS.Utility;
 using lorem_headless_tests.Extensions;
 using lorem_headless_tests.Services;
 using Microsoft.ClearScript.V8;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using Xunit;
 
