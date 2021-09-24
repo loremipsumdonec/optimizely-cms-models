@@ -5,7 +5,13 @@ using System.Threading.Tasks;
 
 namespace lorem_headless.Features.Render.Services
 {
+    public interface IConnector 
+    {
+        string WaitForContent();
+    }
+
     public class Connector
+        : IConnector
     {
         private ManualResetEventSlim _set;
         private string _content;
@@ -17,7 +23,7 @@ namespace lorem_headless.Features.Render.Services
 
         public string WaitForContent()
         {
-            _set.Wait();
+            _set.Wait(2000);
             return _content;
         }
 

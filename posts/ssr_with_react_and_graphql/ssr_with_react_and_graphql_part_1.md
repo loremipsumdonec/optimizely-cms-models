@@ -119,4 +119,4 @@ With the help of `AddHostObject`, it is now possible for us to wait for the java
 
 ## Conclusion
 
-This is the basic of how to handle the problem with async function in JavaScript, and with `AddHostObject` you can introduce other type of functions. 
+This is the basic of how to handle the problem with async function in JavaScript, and with `AddHostObject` you can introduce other type of functions.

@@ -30,9 +30,9 @@ namespace lorem_headless_tests
                 Factory = () => {
                     var engine = new V8ScriptEngine(V8ScriptEngineFlags.EnableTaskPromiseConversion);
 
-                    string server = Resources.GetContent("CreateReactAppWithGraphQL/server/server.js");
+                    string server = Resources.GetContent("SpaceX/server/server.js");
                     engine.Execute(server);
-                    engine.Execute("function render() { lorem.render() }");
+                    engine.Execute("function render() { lorem.render([]) }");
 
                     return engine;
                 }
@@ -42,33 +42,19 @@ namespace lorem_headless_tests
             {
                 var html = session.Render();
             }
-
-            using (var session = manager.GetRenderSessionForEngine("lorem_donec"))
-            {
-                var html = session.Render();
-            }
-
-            using (var session = manager.GetRenderSessionForEngine("lorem_donec"))
-            {
-                var html = session.Render();
-            }
-
-            using (var session = manager.GetRenderSessionForEngine("lorem_donec"))
-            {
-                var html = session.Render();
-            }
         }
 
         [Fact]
-        public async void Lorem()
+        public async void RenderSpaceX_HasAListWithItems()
         {
             using (V8ScriptEngine engine = new V8ScriptEngine(V8ScriptEngineFlags.EnableTaskPromiseConversion))
             {
                 var connector = new Connector();
                 engine.AddHostObject("Connector", connector);
 
-                string server = Resources.GetContent("CreateReactAppWithGraphQL/server/server.js");
+                string server = Resources.GetContent("SpaceX/server/server.js");
                 engine.Execute(server);
+                engine.Execute("function render() { lorem.render([]); }");
 
                 engine.Invoke("render");
                 string html = connector.WaitForContent();
@@ -89,6 +75,7 @@ namespace lorem_headless_tests
             ExecuteWhenRender = settings.ExecuteWhenRender;
             MaxEngines = settings.MaxEngines;
             Factory = settings.Factory;
+            ConnectorType = settings.ConnectorType;
         }
 
         public string ExecuteWhenRender { get; set; }
@@ -179,9 +166,9 @@ namespace lorem_headless_tests
             }
         }
 
-        public Connector CreateConnector()
+        public IConnector CreateConnector()
         {
-            return (Connector)Activator.CreateInstance(ConnectorType);
+            return (IConnector)Activator.CreateInstance(ConnectorType);
         }
 
         public void DestroyEngine(V8ScriptEngine engine)

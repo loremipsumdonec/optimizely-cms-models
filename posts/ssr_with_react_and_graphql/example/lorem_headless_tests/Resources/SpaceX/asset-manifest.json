@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/server/server.js",
+    "index.html": "/index.html",
+    "server/server.js.LICENSE.txt": "/server/server.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "server/server.js"
+  ]
+}
