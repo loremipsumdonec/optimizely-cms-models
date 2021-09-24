@@ -26,16 +26,16 @@ public void CallFunction_WithNoInput_ReturnMessage()
 }
 ```
 
-> If you look through all the test cases in the file XYK and compare these with the test cases from the previous post, you can see there is not major difference.
+> If you look through all the test cases in the file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/JavaScriptEngineTests.cs) and compare these with the test cases from the [previous post](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_tests/JavaScriptEngineTests.cs), you can see there is not major difference.
 
 ### Support for asynchronous functions
 
-But since we will start using GraphQL, this will make the React application use asynchronous functions. We did not allow any async calls in the previous implementation, one of the reasons for this is to keep it _simple_. But now we have to support async calls.
+But since we will start using [GraphQL](https://graphql.org/), this will make the React application use asynchronous functions. We did not allow any async calls in the previous implementation, one of the reasons for this is to keep it _simple_. But now we have to support async calls.
 
 If we start with the code below and run it, we will only get the result `1,2` from the function. The value 3 comes later. But the application has already called and retrieved the value when it happens.
 
 ```csharp
-public void FirstCaseWithPromise() 
+public void GetValues_UsingPromise_ShouldOnlyGetTwoOfThreeValues() 
 {
     var engine = new V8ScriptEngine();
 
@@ -71,10 +71,10 @@ This is a common problem and nothing that should be new. Especially if you have 
 
 ### AddHostObject
 
-By using the `AddHostObject` method, we can make .NET objects available in the javascript. Below is an example of when an instance of `ManualResetEventSlim` is inserted via AddHostObject which can then be called.
+By using the `AddHostObject` method, we can make .NET objects available in the JavaScript. Below is an example of when an instance of `ManualResetEventSlim` is inserted via `AddHostObject` which can then be called.
 
 ```csharp
-public void SolveCaseWithPromise()
+public void GetValues_WhenUsingWait_ShouldGetAllThreeValues()
 {
     var set = new ManualResetEventSlim();
 
@@ -115,8 +115,8 @@ public void SolveCaseWithPromise()
 }
 ```
 
-With the help of `AddHostObject`, it is now possible for us to wait for the javascript to be completed when using async functions. You can find theses tests in the file XYK.
+With the help of `AddHostObject`, it is now possible for us to wait for the javascript to be completed when using async functions. You can find theses tests in the file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/JavaScriptEngineTests.cs).
 
 ## Conclusion
 
-This is the basic principle of how to handle the problem with async function, then you can do musch more things with `AddHostObject`.
+This is the basic of how to handle the problem with async function in JavaScript, and with `AddHostObject` you can introduce other type of functions. 

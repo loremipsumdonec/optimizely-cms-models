@@ -11,13 +11,13 @@ The project will be built with [create-react-app](https://create-react-app.dev/)
 
 > To get started with a project using React and Apollo client, follow this [guide](https://www.apollographql.com/docs/react/get-started/).
 
-I have created a component called Missions that retrieves and prints the 10 latest mission names, below is a picture of what it looks like when rendered in the browser. You can find the frontend project here XYK.
+I have created a component called Missions that retrieves and prints the 10 latest mission names, below is a picture of what it looks like when rendered in the browser. You can find the front-end project [here](https://github.com/loremipsumdonec/optimizely-cms-models/tree/master/posts/ssr_with_react_and_graphql/example/spacex_react).
 
 ![](./resources/missons_component.png)
 
 ## Update the render method
 
-For Apollo Client to work correctly on the server side, we will need to set some settings and also extract the state and save it in the html document so the application can rehydrate in the browser.
+For Apollo Client to work correctly on the server side, we will need to set some settings and also extract the state and save it in the HTML document so the application can rehydrate in the browser.
 
 > You can find more information on how to enable server-side rendering for Apollo Client [here](https://www.apollographql.com/docs/react/performance/server-side-rendering/) 
 

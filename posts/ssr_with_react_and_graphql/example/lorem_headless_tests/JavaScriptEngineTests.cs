@@ -102,7 +102,7 @@ namespace lorem_headless_tests
         }
     
         [Fact]
-        public void FirstCaseWithPromise() 
+        public void GetValues_UsingPromise_ShouldOnlyGetTwoOfThreeValues() 
         {
             var engine = new V8ScriptEngine();
 
@@ -132,7 +132,7 @@ namespace lorem_headless_tests
         }
 
         [Fact]
-        public void SolveCaseWithPromise()
+        public void GetValues_WhenUsingWait_ShouldGetAllThreeValues()
         {
             var set = new ManualResetEventSlim();
 
