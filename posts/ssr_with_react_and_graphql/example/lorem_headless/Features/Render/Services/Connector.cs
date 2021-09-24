@@ -5,11 +5,6 @@ using System.Threading.Tasks;
 
 namespace lorem_headless.Features.Render.Services
 {
-    public interface IConnector 
-    {
-        string WaitForContent();
-    }
-
     public class Connector
         : IConnector
     {
@@ -23,7 +18,7 @@ namespace lorem_headless.Features.Render.Services
 
         public string WaitForContent()
         {
-            _set.Wait(2000);
+            _set.Wait(8000);
             return _content;
         }
 

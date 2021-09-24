@@ -21,7 +21,7 @@ namespace lorem_headless_tests
         [Fact]
         public void CreateSiteWithACreateReactApp()
         {
-            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app");
+            Fixture.CreateSite<StartPage>(p => p.Renderer = "SpaceX");
         }
 
 

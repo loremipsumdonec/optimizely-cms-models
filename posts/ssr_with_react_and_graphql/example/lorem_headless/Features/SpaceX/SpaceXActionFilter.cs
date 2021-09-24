@@ -1,22 +1,23 @@
 ﻿using EPiServer;
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
+using lorem_headless.Features.Render;
 using lorem_headless.Models.Pages;
 using System.Web.Mvc;
 
-namespace lorem_headless.Features.CreateReactAppWithHtml
+namespace lorem_headless.Features.SpaceX
 {
-    public class CreateReactAppWithHtmlActionFilter
+    public class SpaceXActionFilter
         : IActionFilter
     {
         private readonly IContentLoader _loader;
 
-        public CreateReactAppWithHtmlActionFilter() 
+        public SpaceXActionFilter() 
             : this(ServiceLocator.Current.GetInstance<IContentLoader>())
         {
         }
 
-        public CreateReactAppWithHtmlActionFilter(IContentLoader loader)
+        public SpaceXActionFilter(IContentLoader loader)
         {
             _loader = loader;
         }
@@ -29,7 +30,7 @@ namespace lorem_headless.Features.CreateReactAppWithHtml
         {
             if (CanTransform(filterContext))
             {
-                filterContext.Result = new CreateReactAppWithHtmlActionResult();
+                filterContext.Result = new SpaceXActionResult();
             }
         }
 
@@ -45,7 +46,7 @@ namespace lorem_headless.Features.CreateReactAppWithHtml
                 && filterContext.HttpContext.Request.ContentType == "text/html")
             {
                 var startPage = GetStartPage();
-                return startPage?.Renderer == "create-react-app-with-html";
+                return startPage?.Renderer == "SpaceX";
             }
 
             return false;
