@@ -40,4 +40,4 @@ The `Connector` is a service that we can use in the front-end project to send th
 
 ## Conclusion
 
-This was a introduction that shows that it works to render the front-end application when it uses GraphQL to retrieve data during server-side rendering. In the next chapter I will focus on adding support to Optimizely CMS.
+This was a introduction that shows that it works to render the front-end application with Microsoft ClearScript when it uses GraphQL to retrieve data from an external service. In the next chapter I will focus on adding support to GraphQL in an Optimizely CMS implementation.
