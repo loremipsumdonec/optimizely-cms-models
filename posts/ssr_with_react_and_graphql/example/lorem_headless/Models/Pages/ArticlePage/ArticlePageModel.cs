@@ -3,6 +3,11 @@ namespace lorem_headless.Models.Pages
 {
     public class ArticlePageModel
     {
+        public ArticlePageModel() 
+        {
+            Heading = "Hello world";
+        }
+
         public ArticlePageModel(ArticlePage articlePage)
         {
             Heading = articlePage.Heading;

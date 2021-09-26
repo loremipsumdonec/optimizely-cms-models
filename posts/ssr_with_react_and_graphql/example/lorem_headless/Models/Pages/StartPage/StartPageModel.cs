@@ -5,6 +5,10 @@ namespace lorem_headless.Models.Pages
 {
     public class StartPageModel
     {
+        public StartPageModel()
+        {
+        }
+
         public StartPageModel(StartPage startPage) 
         {
             Heading = startPage.Heading;

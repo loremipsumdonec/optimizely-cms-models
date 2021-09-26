@@ -1,6 +1,7 @@
 ﻿using EPiServer.Web;
 using Lorem.Test.Framework.Optimizely.CMS;
 using Lorem.Test.Framework.Optimizely.CMS.Utility;
+using lorem_headless.Features.Navigation.Models;
 using lorem_headless.Models.Pages;
 using System;
 using System.Globalization;
@@ -27,6 +28,7 @@ namespace lorem_headless_tests.Services
 
             RegisterBuilder<ArticlePage>(p => {
                 p.Heading = IpsumGenerator.Generate(3, 8, false);
+                p.VisibleInMenu = true;
                 p.Preamble = IpsumGenerator.Generate(10, 18);
             });
 

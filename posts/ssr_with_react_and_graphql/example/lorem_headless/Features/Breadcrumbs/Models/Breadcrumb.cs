@@ -1,5 +1,4 @@
-﻿
-namespace lorem_headless.Features.Breadcrumbs.Models
+﻿namespace lorem_headless.Features.Breadcrumbs.Models
 {
     public class Breadcrumb
     {

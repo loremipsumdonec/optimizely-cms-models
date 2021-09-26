@@ -9,6 +9,8 @@ namespace lorem_headless.Features.Breadcrumbs.Models
             Breadcrumbs = new List<Breadcrumb>();
         }
 
+        public string Name { get; set; }
+
         public List<Breadcrumb> Breadcrumbs { get; set; }
 
         public void Add(Breadcrumb breadcrumb) 

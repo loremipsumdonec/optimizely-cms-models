@@ -18,7 +18,7 @@ namespace lorem_headless.Features.Render.Services
 
         public string WaitForContent()
         {
-            _set.Wait(8000);
+            _set.Wait(2000);
             return _content;
         }
 

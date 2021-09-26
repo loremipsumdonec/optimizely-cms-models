@@ -6,7 +6,6 @@ chapter: "/part-3"
 title: "Render front-end project"
 preamble: "We will start by setting up a very simple front-end project that uses a public GraphQL service. We will then use this project to get an server-side rendering."
 preamble: "....."
----
 If we build the front-end project _spacex_react_ with `npm run build:server` we can then take _server.js_ file and use it for server-side rendering. Below is an test case that renders the react application, you can find this in the file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/CreateReactAppTests.cs)
 
 

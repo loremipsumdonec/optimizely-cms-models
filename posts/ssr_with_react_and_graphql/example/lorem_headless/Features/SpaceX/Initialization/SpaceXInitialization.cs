@@ -1,6 +1,5 @@
 ﻿using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using JSPool;
 using lorem_headless.Features.Render.Models;
 using lorem_headless.Features.Render.Services;
 using Microsoft.ClearScript.V8;

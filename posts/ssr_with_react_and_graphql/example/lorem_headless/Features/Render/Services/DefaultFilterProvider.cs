@@ -18,8 +18,6 @@ namespace lorem_headless.Features.Render.Services
             if(controllerContext.Controller is IWebController) 
             {
                 filters.Add(new Filter(new LoadWebModelActionFilter(), FilterScope.Global, 100));
-                filters.Add(new Filter(new LoadBreadcrumbs(), FilterScope.Global, 50));
-
                 filters.Add(new Filter(new SpaceXActionFilter(), FilterScope.Global, 1));
             }
 

@@ -26,11 +26,11 @@ namespace lorem_headless.Features.Breadcrumbs.Services
             _resolver = resolver;
         }
 
-        public BreadcrumbsModel GetBreadcrumbs(PageData page) 
+        public BreadcrumbsModel GetBreadcrumbs(ContentReference forPage) 
         {
             var model = new BreadcrumbsModel();
             Stack<PageData> stack = new Stack<PageData>();
-            stack.Push(page);
+            stack.Push(_loader.Get<PageData>(forPage));
 
             while(stack.Count > 0) 
             {
