@@ -2,6 +2,11 @@
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
 using lorem_headless.Features.FirstIteration.Models;
+using lorem_headless.Features.Render.Models;
+using lorem_headless.Features.Render.Services;
+using Microsoft.ClearScript.V8;
+using System.Text;
+using System.Web;
 
 namespace lorem_headless.Features.FirstIteration.Initialization
 {

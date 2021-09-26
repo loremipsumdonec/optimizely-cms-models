@@ -338,8 +338,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Controllers\ArticlePageController.cs" />
-    <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\DefaultPageController.cs" />
     <Compile Include="Features\Articles\Models\Article.cs" />
     <Compile Include="Features\Authentication\Initialization\CookieAuthentication.cs" />
     <Compile Include="Features\Breadcrumbs\Models\Breadcrumb.cs" />
@@ -348,13 +347,15 @@
     <Compile Include="Features\Breadcrumbs\Models\BreadcrumbType.cs" />
     <Compile Include="Features\Breadcrumbs\Services\BreadcrumbsService.cs" />
     <Compile Include="Features\FirstIteration\Controllers\FirstIterationApiController.cs" />
-    <Compile Include="Features\FirstIteration\Initialization\HeadlessInitialization.cs" />
+    <Compile Include="Features\FirstIteration\Initialization\FirstIterationInitialization.cs" />
     <Compile Include="Features\FirstIteration\Models\FirstIterationQuery.cs" />
     <Compile Include="Features\FirstIteration\Models\FirstIterationSchema.cs" />
+    <Compile Include="Features\FirstIteration\Models\FirstIteratorConnector.cs" />
     <Compile Include="Features\GraphQL\Initialization\GraphQLInitialization.cs" />
     <Compile Include="Features\GraphQL\Models\GraphQLQuery.cs" />
     <Compile Include="Features\Headless\Controllers\HeadlessGraphQLApiController.cs" />
     <Compile Include="Features\Headless\Initialization\HeadlessInitialization.cs" />
+    <Compile Include="Features\Headless\Models\ContextModel.cs" />
     <Compile Include="Features\Headless\Models\HeadlessQuery.cs" />
     <Compile Include="Features\Headless\Models\HeadlessSchema.cs" />
     <Compile Include="Features\Headless\Models\ModelType.cs" />

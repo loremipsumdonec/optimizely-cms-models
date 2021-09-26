@@ -95,5 +95,177 @@ The final step is then to create an endpoint, see FirstIterationApiController.cs
 
 ![](./resources/first_iteration_breadcrumbs.png)
 
+### Navigation
 
+Another common feature is navigation, and it's usually built in a tree structure.
 
+```csharp
+public class NavigationItem
+{
+    public NavigationItem()
+    {
+        Items = new List<NavigationItem>();
+    }
+
+    public string Url { get; set; }
+
+    public string Text { get; set; }
+
+    public List<NavigationItem> Items {get; set;}
+}
+```
+
+One of the advantages of GraphQL is that the front-end determines what information to get, and in this case, it could also include the number of levels in the navigation.
+
+If we add support to the model for lazy loading, the backend does not have to decide how many levels to retrieve, it is more up to the front-end to define it in the query.
+
+```csharp
+public class NavigationItem
+{
+    private readonly Lazy<IEnumerable<NavigationItem>> _loadItems;
+    private List<NavigationItem> _items = new List<NavigationItem>();
+
+    public NavigationItem()
+    {
+    }
+
+    public NavigationItem(Func<IEnumerable<NavigationItem>> loadItems)
+    {
+        _loadItems = new Lazy<IEnumerable<NavigationItem>>(loadItems);
+    }
+
+    public string Url { get; set; }
+
+    public string Text { get; set; }
+
+    public List<NavigationItem> Items 
+    { 
+        get 
+        {
+            if(_loadItems != null 
+               && !_loadItems.IsValueCreated)
+            {
+                foreach(var item in _loadItems.Value) 
+                {
+                    Add(item);
+                }
+            }
+
+            return _items;
+        }
+        set
+        {
+            _items = value;
+        }
+    }
+
+    public void Add(NavigationItem item) 
+    {
+        _items.Add(item);
+    }
+}
+```
+
+It is important to think about accessibility and usually some texts are needed that the front-end can use in the component to meet the accessibility requirements. We can add these fields on the NavigationModel, this model should also implement lazy loading for the items. 
+
+```csharp
+    public class NavigationModel 
+    {
+        ...
+
+        public string AccessibilityDescription { get; set; }
+
+        public string OpenNavigationPaneLabel { get; set; }
+
+        public string CloseNavigationPaneLabel { get; set; }
+
+        public string OpenNavigationItemLabel { get; set; }
+
+        public string CloseNavigationItemLabel { get; set; }
+
+        public List<NavigationItem> Items
+        {
+            ....
+        }
+        
+        ...
+    }
+```
+
+The next step is the same as with breadcrumbs and that is to add the types and create the query.
+
+```csharp
+public class NavigationItemType
+    : ObjectGraphType<NavigationItem>
+{
+    public NavigationItemType()
+    {
+        Field(m => m.Url);
+        Field(m => m.Text);
+
+        Field<ListGraphType<NavigationItemType>>(
+            "items",
+            resolve: context => context.Source.Items
+        );
+    }
+}
+```
+
+```csharp
+public class NavigationModelType
+    : ObjectGraphType<NavigationModel>
+{
+    public NavigationModelType()
+    {
+        Field(m => m.AccessibilityDescription);
+        Field(m => m.OpenNavigationPaneLabel);
+        Field(m => m.CloseNavigationPaneLabel);
+        Field(m => m.OpenNavigationItemLabel);
+        Field(m => m.CloseNavigationItemLabel);
+
+        Field<ListGraphType<NavigationItemType>>(
+            "items",
+            resolve: context => context.Source.Items
+        );
+    }
+}
+```
+
+```csharp
+public class FirstIterationQuery
+    : ObjectGraphType<object>
+{
+    public FirstIterationQuery()
+    {
+		...
+        
+        Field<NavigationModelType>(
+            "navigation",
+            arguments: new QueryArguments(
+                new QueryArgument<IntGraphType> { Name = "fromPageId" }
+            ),
+            resolve: context =>
+            {
+                ContentReference fromPage = ContentReference.StartPage;
+
+                if (context.Arguments.ContainsKey("fromPageId")
+                    && context.Arguments["fromPageId"].Value != null)
+                {
+                    fromPage = new ContentReference((int)context.Arguments["fromPageId"].Value);
+                }
+
+                var service = ServiceLocator.Current.GetInstance<NavigationService>();
+                return service.GetNavigation(fromPage);
+            }
+        );
+    }
+}
+```
+
+You can find the complete implementation here and if we use navigation, it is possible to control how many levels to retrieve.
+
+![](./resources/first_iteration_navigation.png)
+
+## Conclusion
+
+Now we have added support for GraphQL in a Optimizely CMS implementation and it works in my opinion very well, and it will be easier for both backend and frontend to build functions. In the next and final part we will connect it with frontend and show a complete server-side rendered application.

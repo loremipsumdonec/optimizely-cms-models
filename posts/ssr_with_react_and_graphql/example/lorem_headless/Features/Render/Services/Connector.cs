@@ -22,7 +22,7 @@ namespace lorem_headless.Features.Render.Services
             return _content;
         }
 
-        public async Task<string> Execute(string url, string query)
+        public virtual async Task<string> Execute(string url, string query)
         {
             using (var client = new HttpClient())
             using (var content = new StringContent(query, Encoding.UTF8, "application/json"))
