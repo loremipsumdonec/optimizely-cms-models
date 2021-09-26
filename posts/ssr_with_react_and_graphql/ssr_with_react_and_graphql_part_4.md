@@ -5,7 +5,8 @@ chapter: "/part-4"
 
 title: "Adding support for GraphQL"
 preamble: "Now it's time to add GraphQL support to an Optimizely CMS implementation."
-preamble: "....."
+---
+
 In this example, the choice is to use [GraphQL.NET](https://graphql-dotnet.github.io/), if you are doing this with Optimizely CMS 12 you can also use [HotChocolate](https://github.com/ChilliCream/hotchocolate/). 
 
 We will use GraphQL.NET together with WebApi that will be responsible for exposing an endpoint to GraphQL. It should be sufficient to install [GraphQL](https://www.nuget.org/packages/GraphQL/) and [GraphQL.NewtonsoftJson](https://www.nuget.org/packages/GraphQL.NewtonsoftJson/). In addition to this, we also add support WebApi and make it possible to use dependency injection for these controllers, see feature WebApi for example.
