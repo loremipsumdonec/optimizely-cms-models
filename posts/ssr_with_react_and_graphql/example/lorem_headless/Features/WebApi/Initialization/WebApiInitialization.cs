@@ -24,6 +24,7 @@ namespace lorem_headless.Features.WebApi.Initialization
             {
                 GlobalConfiguration.Configure(config =>
                 {
+                    config.EnableCors();
                     config.MapHttpAttributeRoutes();
                     UpdateSerializerSettings(config);
                     RemoveXmlFormatter(config);

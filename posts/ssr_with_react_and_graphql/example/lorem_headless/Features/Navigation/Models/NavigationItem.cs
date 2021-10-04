@@ -1,5 +1,4 @@
-﻿using EPiServer.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace lorem_headless.Features.Navigation.Models

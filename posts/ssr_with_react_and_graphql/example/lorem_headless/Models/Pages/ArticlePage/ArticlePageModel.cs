@@ -2,10 +2,10 @@
 namespace lorem_headless.Models.Pages
 {
     public class ArticlePageModel
+        : SitePageModel
     {
         public ArticlePageModel() 
         {
-            Heading = "Hello world";
         }
 
         public ArticlePageModel(ArticlePage articlePage)
@@ -14,10 +14,6 @@ namespace lorem_headless.Models.Pages
             Preamble = articlePage.Preamble;
             Text = articlePage.Text?.ToHtmlString();
         }
-
-        public string Url { get; set; }
-
-        public string Heading { get; set; }
 
         public string Preamble { get; set; }
 

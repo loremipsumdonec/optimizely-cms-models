@@ -3,6 +3,7 @@ using EPiServer.ServiceLocation;
 using GraphQL.Types;
 using lorem_headless.Features.Breadcrumbs.Models;
 using lorem_headless.Features.Breadcrumbs.Services;
+using lorem_headless.Features.Headless.Services;
 using lorem_headless.Features.Navigation.Models;
 using lorem_headless.Features.Navigation.Services;
 using lorem_headless.Models.Pages;
@@ -16,30 +17,62 @@ namespace lorem_headless.Features.Headless.Models
         {
             Name = "Query";
 
-            Field<ModelTypeType>(
-                "modelType",
+            Field<ContextModelType>(
+                "contextModel",
                 arguments: new QueryArguments(
                     new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "url" }
                 ),
                 resolve: context => {
-                    return new ModelType();
+
+                    string url = (string)context.Arguments["url"].Value;
+
+                    var service = ServiceLocator.Current.GetInstance<ContextModelService>();
+                    return service.GetContextModel(url);
                 }
             );
 
             Field<StartPageModelType>(
                 "startPage",
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "id" }
+                ),
                 resolve: context => {
-                    return new StartPageModel();
+                    int id = (int)context.Arguments["id"].Value;
+                    var service = ServiceLocator.Current.GetInstance<ContentService>();
+
+                    return service.GetContent<StartPageModel>(
+                        id, typeof(StartPageModelBuilder), typeof(SitePageModelBuilder)
+                    );
                 }
             );
 
             Field<ArticlePageModelType>(
-                "article", 
+                "articlePage", 
                 arguments: new QueryArguments(
-                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "pageId" }
+                    new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "id" }
                 ),
                 resolve: context => {
-                    return new ArticlePageModel();
+                    int id = (int)context.Arguments["id"].Value;
+                    var service = ServiceLocator.Current.GetInstance<ContentService>();
+
+                    return service.GetContent<ArticlePageModel>(
+                        id, typeof(ArticlePageModelBuilder), typeof(SitePageModelBuilder)
+                    );
+                }
+            );
+
+            Field<NonNullGraphType<ListGraphType<NonNullGraphType<ArticlePageModelType>>>>(
+                "articles",
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "parentId" }
+                ),
+                resolve: context => {
+                    int id = (int)context.Arguments["parentId"].Value;
+                    var service = ServiceLocator.Current.GetInstance<ContentService>();
+
+                    return service.GetChildren<ArticlePage, ArticlePageModel>(
+                        id, typeof(ArticlePageModelBuilder), typeof(SitePageModelBuilder)
+                    );
                 }
             );
 

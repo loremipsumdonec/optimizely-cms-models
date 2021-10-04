@@ -8,7 +8,7 @@ namespace lorem_headless.Features.Breadcrumbs.Models
         public BreadcrumbsModelType()
         {
             Field(m => m.Name);
-            Field<ListGraphType<BreadcrumbType>>(
+            Field<NonNullGraphType<ListGraphType<NonNullGraphType<BreadcrumbType>>>>(
                 "breadcrumbs", 
                 resolve: context => context.Source.Breadcrumbs
             );

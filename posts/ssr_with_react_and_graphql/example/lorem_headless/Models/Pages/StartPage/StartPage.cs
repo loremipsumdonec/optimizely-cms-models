@@ -29,9 +29,8 @@ namespace lorem_headless.Models.Pages
         public IEnumerable<ISelectItem> GetSelections(ExtendedMetadata metadata)
         {
             return new List<ISelectItem>() { 
-                new SelectItem() { Text = "React, create react app", Value = "create-react-app" },
-                new SelectItem() { Text = "React, create react app with html", Value = "create-react-app-with-html" },
-                new SelectItem() { Text = "React, final", Value = "create-react-app-final" },
+                new SelectItem() { Text = "Headless", Value = "Headless" },
+                new SelectItem() { Text = "SpaceX", Value = "SpaceX" },
             };
         }
     }

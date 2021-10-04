@@ -281,6 +281,9 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -296,6 +299,9 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -356,10 +362,17 @@
     <Compile Include="Features\Headless\Controllers\HeadlessGraphQLApiController.cs" />
     <Compile Include="Features\Headless\Initialization\HeadlessInitialization.cs" />
     <Compile Include="Features\Headless\Models\ContextModel.cs" />
+    <Compile Include="Features\Headless\Models\ContextModelState.cs" />
+    <Compile Include="Features\Headless\Models\ContextModelType.cs" />
+    <Compile Include="Features\Headless\Models\HeadlessConnector.cs" />
     <Compile Include="Features\Headless\Models\HeadlessQuery.cs" />
     <Compile Include="Features\Headless\Models\HeadlessSchema.cs" />
-    <Compile Include="Features\Headless\Models\ModelType.cs" />
-    <Compile Include="Features\Headless\Models\ModelTypeType.cs" />
+    <Compile Include="Features\Headless\Services\ContentService.cs" />
+    <Compile Include="Features\Headless\Services\ContextModelService.cs" />
+    <Compile Include="Features\Headless\Services\IModelBuilder.cs" />
+    <Compile Include="Features\Headless\Services\ModelBuilder.cs" />
+    <Compile Include="Features\Headless\HeadlessActionFilter.cs" />
+    <Compile Include="Features\Headless\HeadlessActionResult.cs" />
     <Compile Include="Features\Navigation\Models\NavigationItem.cs" />
     <Compile Include="Features\Navigation\Models\NavigationItemType.cs" />
     <Compile Include="Features\Navigation\Models\NavigationModel.cs" />
@@ -399,9 +412,13 @@
     </Compile>
     <Compile Include="Models\Pages\ArticlePage\ArticlePage.cs" />
     <Compile Include="Models\Pages\ArticlePage\ArticlePageModel.cs" />
+    <Compile Include="Models\Pages\ArticlePage\ArticlePageModelBuilder.cs" />
     <Compile Include="Models\Pages\ArticlePage\ArticlePageModelType.cs" />
     <Compile Include="Models\Pages\SettingsPage\SettingsPage.cs" />
     <Compile Include="Models\Pages\SitePage\SitePage.cs" />
+    <Compile Include="Models\Pages\SitePage\SitePageModel.cs" />
+    <Compile Include="Models\Pages\SitePage\SitePageModelBuilder.cs" />
+    <Compile Include="Models\Pages\StartPage\StartPageModelBuilder.cs" />
     <Compile Include="Models\Pages\StartPage\StartPageModelType.cs" />
     <Compile Include="Models\Pages\StartPage\StartPage.cs" />
     <Compile Include="Models\Pages\StartPage\StartPageModel.cs" />

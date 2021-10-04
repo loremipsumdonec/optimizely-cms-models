@@ -8,10 +8,12 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace lorem_headless.Features.Headless.Controllers
 {
     [RoutePrefix("api/headless")]
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
     public class HeadlessGraphQLApiController
         : ApiController
     {

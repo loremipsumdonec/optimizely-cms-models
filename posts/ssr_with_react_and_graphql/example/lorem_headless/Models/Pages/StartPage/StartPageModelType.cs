@@ -7,7 +7,6 @@ namespace lorem_headless.Models.Pages
     {
         public StartPageModelType()
         {
-            Field(m => m.Url);
             Field(m => m.Heading);
             Field(m => m.Preamble);
         }
