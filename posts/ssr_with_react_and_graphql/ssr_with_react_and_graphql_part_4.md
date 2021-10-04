@@ -166,7 +166,7 @@ public class NavigationItem
 }
 ```
 
-It is important to think about accessibility and usually some texts are needed that the front-end can use in the component to meet the accessibility requirements. We can add these fields on the NavigationModel, this model should also implement lazy loading for the items. 
+It is important to think about accessibility and usually some texts are needed so that the component meet the accessibility requirements. We can add these fields on the NavigationModel, this model should also implement lazy loading for the items. 
 
 ```csharp
     public class NavigationModel 
@@ -268,4 +268,4 @@ You can find the complete implementation here and if we use navigation, it is po
 
 ## Conclusion
 
-Now we have added support for GraphQL in a Optimizely CMS implementation and it works in my opinion very well, and it will be easier for both backend and frontend to build functions. In the next and final part we will connect it with frontend and show a complete server-side rendered application.
+Now we have added support for GraphQL in a Optimizely CMS implementation, this will make it easier for both backend and frontend to build functions.

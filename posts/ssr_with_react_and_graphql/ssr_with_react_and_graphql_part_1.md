@@ -3,13 +3,13 @@ type: "chapter"
 book: "/optimizely/ssr-with-react-and-graphql"
 chapter: "/part-1"
 
-title: "Let's start with javascript"
+title: "Render JavaScript that use promises"
 preamble: "Before we can start implementing support for GraphQL, I intend to introduce some features that we will use in this implementation."
 ---
 
-One of the differences from before is that we will now use [Microsoft ClearScript](https://github.com/microsoft/ClearScript) directly. This is because we need more control and can then not go via [JavaScriptEngineSwitcher](https://github.com/Taritsyn/JavaScriptEngineSwitcher). 
+One of the differences from before is that we will now use [Microsoft ClearScript](https://github.com/microsoft/ClearScript) directly. This is because we need access to some flags and can then not go via [JavaScriptEngineSwitcher](https://github.com/Taritsyn/JavaScriptEngineSwitcher). 
 
-There is no major difference in the syntax, and below is an example where we use `V8ScriptEngine`.
+There is no major difference in the syntax compared to JavaScriptEngineSwithcer, and below is an example where we use `V8ScriptEngine`.
 
 ```csharp
 public void CallFunction_WithNoInput_ReturnMessage()
@@ -28,9 +28,9 @@ public void CallFunction_WithNoInput_ReturnMessage()
 
 > If you look through all the test cases in the file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/JavaScriptEngineTests.cs) and compare these with the test cases from the [previous post](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/lets_investigate_server_side_rendering/example/lorem_headless/lorem_headless_tests/JavaScriptEngineTests.cs), you can see there is not major difference.
 
-### Support for asynchronous functions
+### Support for promises
 
-But since we will start using [GraphQL](https://graphql.org/), this will make the React application use asynchronous functions. We did not allow any async calls in the previous implementation, one of the reasons for this is to keep it _simple_. But now we have to support async calls.
+But since we will start using [GraphQL](https://graphql.org/), this will make the React application use promises. We did not allow these in the previous implementation, one of the reasons for this is to keep it _simple_.
 
 If we start with the code below and run it, we will only get the result `1,2` from the function. The value 3 comes later. But the application has already called and retrieved the value when it happens.
 
@@ -65,9 +65,9 @@ public void GetValues_UsingPromise_ShouldOnlyGetTwoOfThreeValues()
 }
 ```
 
-What is needed is that we need to wait until everything is finished. So, the javascript must send back a signal when it is finished, and only then can we retrieve the value.
+What is needed is that we need to wait until everything is finished. So, the JavaScript must send back a signal when it is finished, and only then can we retrieve the value.
 
-This is a common problem and nothing that should be new. Especially if you have been working with multi-threads, and .NET has several tools for this.
+This is a common problem and nothing that should be new.
 
 ### AddHostObject
 
@@ -115,8 +115,10 @@ public void GetValues_WhenUsingWait_ShouldGetAllThreeValues()
 }
 ```
 
-With the help of `AddHostObject`, it is now possible for us to wait for the javascript to be completed when using async functions. You can find theses tests in the file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/JavaScriptEngineTests.cs).
+With the help of `AddHostObject`, it is now possible for us to wait for the JavaScript to be completed when using a Promise. 
+
+> You can find theses tests in the file [JavaScriptEngineTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/JavaScriptEngineTests.cs).
 
 ## Conclusion
 
-This is the basic of how to handle the problem with async function in JavaScript, and with `AddHostObject` you can introduce other type of functions.
+This is the basic of how to handle promises in JavaScript, and with `AddHostObject` you can introduce other type of functions.
