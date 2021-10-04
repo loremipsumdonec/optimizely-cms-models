@@ -1,5 +1,5 @@
 ---
-date: "2021-09-23"
+date: "2021-10-05"
 type: "book"
 book: "/optimizely/ssr-with-react-and-graphql"
 theme: "red"
