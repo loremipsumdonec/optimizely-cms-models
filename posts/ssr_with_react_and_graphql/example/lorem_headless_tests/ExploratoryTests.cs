@@ -23,9 +23,9 @@ namespace lorem_headless_tests
         public ExploratoryFixture Fixture { get; set; }
 
         [Fact]
-        public void CreateSiteWithACreateReactApp()
+        public void CreateASite()
         {
-            Fixture.CreateSite<StartPage>(p => p.Renderer = "SpaceX")
+            Fixture.CreateSite<StartPage>(p => p.Renderer = "Headless")
                 .CreateMany<ArticlePage>(5)
                 .CreatePath(3);
 
@@ -40,40 +40,7 @@ namespace lorem_headless_tests
                     b.OpenNavigationItemLabel = IpsumGenerator.Generate(1, 2, false);
                     b.CloseNavigationItemLabel = IpsumGenerator.Generate(1, 2, false);
                 }).First();
-
             });
-        }
-
-
-        [Fact]
-        public void CreateSiteWithACreateReactAppWithHtml()
-        {
-            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app-with-html");
-        }
-
-        [Fact]
-        public void CreateSiteWithCreateReactAppFinal() 
-        {
-            Fixture.CreateSite<StartPage>(p => p.Renderer = "create-react-app-final")
-                .CreateMany<ArticlePage>(5,p=> {
-                    p.VisibleInMenu = true;
-                    p.Heading = IpsumGenerator.Generate(3, 6, false);
-                    p.Preamble = IpsumGenerator.Generate(12, 16);
-
-                    StringBuilder builder = new StringBuilder();
-
-                    for(int index=0;index < 13; index++) 
-                    {
-                        if(index % 3 == 0) 
-                        {
-                            builder.Append($"<h2>{IpsumGenerator.Generate(5, 6)}");
-                        }
-
-                        builder.Append($"<p>{IpsumGenerator.Generate(12, 29)}</p>");
-                    }
-
-                    p.Text = new EPiServer.Core.XhtmlString(builder.ToString());
-                });
         }
     }
 }
