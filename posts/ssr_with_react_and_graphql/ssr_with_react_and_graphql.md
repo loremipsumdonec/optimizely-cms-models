@@ -3,8 +3,8 @@ date: "2021-09-23"
 type: "book"
 book: "/optimizely/ssr-with-react-and-graphql"
 theme: "red"
-state: "in_progress"
-tags: [""]
+state: "done"
+tags: ["optimizely"]
 
 repository_url: "https://github.com/loremipsumdonec/optimizely-cms-models"
 repository_name: "optimizely-cms-models"
