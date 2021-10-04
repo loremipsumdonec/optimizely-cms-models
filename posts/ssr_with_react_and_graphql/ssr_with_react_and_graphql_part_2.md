@@ -81,17 +81,17 @@ const directCommunicationWithBackend = new ApolloLink((operation, _) => {
 });
 ```
 
-When working with links the graphql query will be in AST format and convert it to a string we need to use the [print](https://graphql.org/graphql-js/language/#print) function that comes with [graphql](graphql/language) package.
+When working with links the graphql query will be in AST format and convert it to a string we use the [print](https://graphql.org/graphql-js/language/#print) function that comes with [graphql](graphql/language) package.
 
 ## Connector
 
 The `Connector` is a service that we can use in the front-end project to send the rendered content to backend when it's done. We can also extend it with different methods, like the `Query` method thats used by the Apollo Client link `directCommunicationWithBackend`.
 
-> You should avoid handling it as a global object, and instead strive to submit it as an input to the functions where it is needed.
+> You should avoid handling it as a global object, and instead strive to use it as an input to the functions where it is needed.
 
 ## Render in backend
 
-If we build the front-end project _spacex_react_ with `npm run build:server` we can then take _server.js_ file and use it for server-side rendering. Below is an test case that renders the react application, you can find this in the file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/CreateReactAppTests.cs)
+If we build the front-end project spacex_react with `npm run build:server` we can then take _server.js_ file and use it for server-side rendering. Below is an test case that renders the react application, you can find this in the file [CreateReactAppTests.cs](https://github.com/loremipsumdonec/optimizely-cms-models/blob/master/posts/ssr_with_react_and_graphql/example/lorem_headless_tests/CreateReactAppTests.cs)
 
 ```csharp
 public async void RenderSpaceX_HasAListWithItems()

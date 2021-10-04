@@ -7,9 +7,7 @@ title: "Render JavaScript that use promises"
 preamble: "Before we can start implementing support for GraphQL, I intend to introduce some features that we will use in this implementation."
 ---
 
-One of the differences from before is that we will now use [Microsoft ClearScript](https://github.com/microsoft/ClearScript) directly. This is because we need access to some flags and can then not go via [JavaScriptEngineSwitcher](https://github.com/Taritsyn/JavaScriptEngineSwitcher). 
-
-There is no major difference in the syntax compared to JavaScriptEngineSwithcer, and below is an example where we use `V8ScriptEngine`.
+One of the differences from before is that we will now use [Microsoft ClearScript](https://github.com/microsoft/ClearScript) directly. There is no major difference in the syntax compared to [JavaScriptEngineSwitcher](https://github.com/Taritsyn/JavaScriptEngineSwitcher)., and below is an example where we use `V8ScriptEngine`.
 
 ```csharp
 public void CallFunction_WithNoInput_ReturnMessage()
@@ -66,8 +64,6 @@ public void GetValues_UsingPromise_ShouldOnlyGetTwoOfThreeValues()
 ```
 
 What is needed is that we need to wait until everything is finished. So, the JavaScript must send back a signal when it is finished, and only then can we retrieve the value.
-
-This is a common problem and nothing that should be new.
 
 ### AddHostObject
 
